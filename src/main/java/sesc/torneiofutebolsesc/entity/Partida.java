@@ -1,15 +1,25 @@
 package sesc.torneiofutebolsesc.entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlRootElement;
 import java.util.List;
+import java.util.Set;
 
 @Entity
-@Table
+@Table(name = "hotel")
+@XmlRootElement
+@XmlAccessorType(XmlAccessType.FIELD)
 public class Partida {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+
+
     private Long id;
-    private List<Turma> turmas;
+    @ManyToMany
+    private Set<Turma> turmas;
 
 }
